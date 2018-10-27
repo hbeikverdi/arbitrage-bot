@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/hbeikverdi/arbitrage-bot#readme",
   "dependencies": {
+    "dotenv": "^6.1.0",
     "hollaex-node-lib": "^0.3.1",
-    "node-binance-api": "^0.8.5"
+    "node-binance-api": "^0.8.5",
+    "node-telegram-bot-api": "^0.30.0"
   }
 }

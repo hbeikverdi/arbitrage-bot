@@ -1,3 +1,9 @@
+require('dotenv').config();
+
+const telegramToken = process.env.TELEGRAM_TOKEN || '';
+const telegramGroup = process.env.TELEGRAM_GROUP || '';
+
+const TelegramBot = require('node-telegram-bot-api');
 const EXIR = require('hollaex-node-lib');
 const binance = require('node-binance-api')().options({
 	APIKEY: '<key>',
@@ -7,10 +13,36 @@ const binance = require('node-binance-api')().options({
 });
 
 const exir = new EXIR({apiURL: 'https://api.exir.tech', baseURL: '/v0', accessToken:''});
-
 var Exir,Binance,btc_ask,btc_bid , eth_ask , eth_bid , binance_eth
 
-setInterval(() => {
+
+/*********************************************************
+TELEGRAM BOT
+*********************************************************/
+const bot = new TelegramBot(telegramToken, {polling: true});
+
+bot.onText(/^/, (msg, match) => {
+
+	const chatId = msg.chat.id;
+	let message = "ARBITRAGE BOT is working";
+	
+	bot.sendMessage(chatId, message);
+});
+
+// Send a notifitcation message to a telegram group with /message/ as parameter
+const sendNotification = (message) => {
+	try {
+		bot.sendMessage(telegramGroup, message);
+	} catch(err) {
+		console.error(err)
+	}
+}
+
+
+/*********************************************************
+PRICE CALCULATION
+*********************************************************/
+const calculatePrices =  () => {
 	binance.prices('ETHBTC', (error, ticker)  => {
 		console.log("Price of ETH: ", ticker.ETHBTC);
 		binance_eth=ticker.ETHBTC
@@ -52,5 +84,8 @@ setInterval(() => {
 		{
 			console.log("******** EYVAL :) ************    (arbitrage : Buy ETH in Exir)");
 		}
-	
+}
+
+setInterval(() => {
+	calculatePrices();
 }, 7000);
