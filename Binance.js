@@ -77,12 +77,14 @@ const calculatePrices =  () => {
 	if( (Exir*10000)/10024 > binance_eth )
 		{
 			console.log("******** EYVAL :) ************    (arbitrage : Sell ETH in Exir)");
+			sendNotification("******** EYVAL :) ************    (arbitrage : Sell ETH in Exir)");
 
 		} 
 			 
 	if ((Binance*10000)/9976 < binance_eth )
 		{
 			console.log("******** EYVAL :) ************    (arbitrage : Buy ETH in Exir)");
+			sendNotification("******** EYVAL :) ************    (arbitrage : Buy ETH in Exir)")
 		}
 }
 
