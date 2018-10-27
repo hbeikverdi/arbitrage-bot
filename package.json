@@ -1,0 +1,24 @@
+{
+  "name": "arbitrage-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Binance.js",
+  "scripts": {
+    "start": "node Binance",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hbeikverdi/arbitrage-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hbeikverdi/arbitrage-bot/issues"
+  },
+  "homepage": "https://github.com/hbeikverdi/arbitrage-bot#readme",
+  "dependencies": {
+    "hollaex-node-lib": "^0.3.1",
+    "node-binance-api": "^0.8.5"
+  }
+}
