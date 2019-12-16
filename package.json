@@ -20,6 +20,7 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "hollaex-node-lib": "^0.3.1",
+    "lodash": "^4.17.15",
     "node-binance-api": "^0.8.5",
     "node-telegram-bot-api": "^0.30.0"
   }
