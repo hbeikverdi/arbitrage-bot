@@ -1,7 +1,7 @@
 require('dotenv').config();
 
-const telegramToken = process.env.TELEGRAM_TOKEN || '734199382:AAEw3sxbInt-FkcC1431aiuK39MqSOH594I';
-const telegramGroup = process.env.TELEGRAM_GROUP || '91555670';
+const telegramToken = process.env.TELEGRAM_TOKEN || '';
+const telegramGroup = process.env.TELEGRAM_GROUP || '';
 
 const TelegramBot = require('node-telegram-bot-api');
 const EXIR = require('hollaex-node-lib');
